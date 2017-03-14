@@ -6,7 +6,7 @@ class LetterPicker extends Component {
 
     render() {
         return (
-            <Text style={{ fontSize: 11, fontWeight: 'bold' }}>
+            <Text style={{ fontSize: 12, fontWeight: 'bold' }}>
                 {this.props.letter}
             </Text>
         );
@@ -54,9 +54,10 @@ export default class AlphabetPicker extends Component {
 
     _findTouchedLetter(y) {
         let top = y - (this.absContainerTop || 0);
-
+        // console.log("top:", top, "containerHeight", this.containerHeight)
         if (top >= 1 && top <= this.containerHeight) {
-            return Alphabet[Math.round((top / this.containerHeight) * Alphabet.length)]
+            // console.log(Alphabet[Math.floor((top / this.containerHeight) * Alphabet.length)])
+            return Alphabet[Math.floor((top / this.containerHeight) * Alphabet.length)]
         }
     }
 
@@ -68,19 +69,25 @@ export default class AlphabetPicker extends Component {
     }
 
     render() {
-        this._letters = this._letters || (
-            Alphabet.map((letter) => <LetterPicker letter={letter} key={letter} />)
-        );
+        console.log(this.props.renderLetters)
+        this._letters = Alphabet.map((letter) => {
+                if(this.props.renderLetters) {
+                    return this.props.renderLetters(letter)
+                } else {
+                    return <LetterPicker letter={letter} key={letter} />
+                } 
+            })
+        
+        
+        //console.log(<LetterPicker letter={"A"} />, this.props.renderLetters("A"))
 
         return (
             <View
                 ref='alphabetContainer'
                 {...this._panResponder.panHandlers}
                 onLayout={this._onLayout.bind(this)}
-                style={{ paddingHorizontal: 5, backgroundColor: '#fff', borderRadius: 1, justifyContent: 'center' }}>
-                <View>
+                style={{ paddingHorizontal: 5, backgroundColor: 'transparent', borderRadius: 1, justifyContent: 'center', alignItems: 'center'}}>
                     {this._letters}
-                </View>
             </View>
         );
     }

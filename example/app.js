@@ -23,6 +23,7 @@ export default class App extends Component {
 
         this._renderCell = this._renderCell.bind(this);
         this._renderHeader = this._renderHeader.bind(this);
+        this._renderLetters = this._renderLetters.bind(this);
     }
 
     _renderHeader(data) {
@@ -45,15 +46,31 @@ export default class App extends Component {
         );
     }
 
+    _renderLetters(data) {
+        // console.log(data)
+        return (
+            <Text style={{ fontSize:15, fontWeight: 'normal' }} key={data}>
+                {data}
+            </Text>
+        )
+    }
+
     render() {
         return (
-            <AtoZList
-                sectionHeaderHeight={35}
-                cellHeight={95}
-                data={names}
-                renderCell={this._renderCell}
-                renderSection={this._renderHeader}
-                />
+            <View style={{flex: 1, backgroundColor: '#ccc'}}>
+                <View style={{height: 50, backgroundColor: '#fedd00',justifyContent: 'center', alignItems:'center'}}>
+                    <Text>全部好友</Text>
+                </View>
+                <AtoZList
+                    sectionHeaderHeight={35}
+                    cellHeight={95}
+                    data={names}
+                    renderCell={this._renderCell}
+                    renderSection={this._renderHeader}
+                    alphabetContainerStyle={{backgroundColor: "#ccc", }}
+                    renderLetters={this._renderLetters}
+                    />
+            </View>
         );
     }
 }

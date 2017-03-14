@@ -104,7 +104,7 @@ export default class FixedHeightWindowedListView extends Component {
 
     let totalRows = this.props.dataSource.getRowCount();
     rows.push(<View key="sp-bot" style={{height: spacerBottomHeight}} />);
-
+    
     return (
       <ScrollView
         scrollEventThrottle={50}
@@ -183,7 +183,9 @@ export default class FixedHeightWindowedListView extends Component {
 
       // Scroll to the buffer area as soon as setState is complete
       this.scrollRef.scrollWithoutAnimationTo(startY);
-      //  this.scrollRef.scrollTo({x: 0, y: startY, animation: false});
+
+      /* there are some bugs when use scrollTo */
+      //  this.scrollRef.scrollTo({x: 0, y: startY, animation: true});
     } else {
       this.nextSectionToScrollTo = sectionId; // Only keep the most recent value
     }

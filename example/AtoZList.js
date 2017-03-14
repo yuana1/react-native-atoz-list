@@ -33,6 +33,9 @@ export default class AtoZList extends Component {
     renderCell: PropTypes.func,
     renderSection: PropTypes.func,
     onEndReached: PropTypes.func,
+
+    alphabetContainerStyle: PropTypes.object,
+    renderLetters: PropTypes.func
   };
 
   constructor(props, context) {
@@ -70,9 +73,10 @@ export default class AtoZList extends Component {
 
 
   render() {
-    this._alphabetInstance = this._alphabetInstance || (
-      <View style={styles.alphabetSidebar}>
-        <AlphabetPicker alphabet={this.state.alphabet} onTouchLetter={this._onTouchLetter.bind(this)} />
+    let {renderLetters, renderCell, renderSection, onEndReached, alphabetContainerStyle} = this.props;
+    this._alphabetInstance = (
+      <View style={[styles.alphabetSidebar, alphabetContainerStyle]}>
+        <AlphabetPicker alphabet={this.state.alphabet} onTouchLetter={this._onTouchLetter.bind(this)} renderLetters={renderLetters}/>
       </View>
     );
 
@@ -82,15 +86,15 @@ export default class AtoZList extends Component {
           <FixedHeightWindowedListView
             ref={view => this._listView = view}
             dataSource={this.state.dataSource}
-            renderCell={this.props.renderCell}
-            renderSectionHeader={this.props.renderSection}
+            renderCell={renderCell}
+            renderSectionHeader={renderSection}
             incrementDelay={16}
             initialNumToRender={8}
             pageSize={Platform.OS === 'ios' ? 15 : 8}
             maxNumToRender={70}
             numToRenderAhead={40}
             numToRenderBehind={4}
-            onEndReached={this.props.onEndReached}
+            onEndReached={onEndReached}
           />
         </View>
 
@@ -110,8 +114,8 @@ export default class AtoZList extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingTop: 25,
-    backgroundColor: '#fff',
+    // paddingTop: 25,
+    // backgroundColor: 'transparent',
   },
   alphabetSidebar: {
     position: 'absolute',
