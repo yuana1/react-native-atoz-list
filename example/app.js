@@ -11,7 +11,7 @@ import {
     Text,
     View
 } from 'react-native';
-import AtoZList from 'react-native-atoz-list';
+import AtoZList from './AtoZList.js';
 import randomcolor from 'randomcolor';
 import _ from 'lodash';
 let names = require('./names');
