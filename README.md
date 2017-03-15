@@ -42,7 +42,7 @@ render(
 ```
 
 ##Props
-Note: You need to set the section height and cellHeight
+Note: You need to set the section height and cellHeight.sectionHeaderHeight and cellHeight must equal to the height value of renderSection and renderCell
 
 
 | property        | Description           |
@@ -55,7 +55,7 @@ Note: You need to set the section height and cellHeight
 | onEndReached | Called when all rows have been rendered and the list has been scrolled to within onEndReachedThreshold of the bottom. The native scroll event is provided. |
 | alphabetContainerStyle | The style of alphabet container |
 | renderLetters | This function will render you letters componenet. |
-| initialNumToRender | The number of initial render |
+| initialNumToRender | The number of initial render.Default 20 |
 
 ## Authors
 

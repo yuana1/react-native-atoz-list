@@ -86,7 +86,8 @@ export default class AlphabetPicker extends Component {
                 ref='alphabetContainer'
                 {...this._panResponder.panHandlers}
                 onLayout={this._onLayout.bind(this)}
-                style={{ paddingHorizontal: 5, backgroundColor: 'transparent', borderRadius: 1, justifyContent: 'center', alignItems: 'center'}}>
+                style={[{ paddingHorizontal: 5, backgroundColor: 'transparent', borderRadius: 1, justifyContent: 'center', alignItems: 'center'},
+                            this.props.alphabetContainerStyle]}>
                     {this._letters}
             </View>
         );

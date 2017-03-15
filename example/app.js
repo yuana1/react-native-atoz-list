@@ -11,7 +11,7 @@ import {
     Text,
     View
 } from 'react-native';
-import AtoZList from 'react-native-atoz-list';
+import AtoZList from './AtoZList';
 import randomcolor from 'randomcolor';
 import _ from 'lodash';
 let names = require('./names');
@@ -67,7 +67,7 @@ export default class App extends Component {
                     data={names}
                     renderCell={this._renderCell}
                     renderSection={this._renderHeader}
-                    alphabetContainerStyle={{backgroundColor: "#ccc", }}
+                    alphabetContainerStyle={{marginTop: -100, backgroundColor: '#ccc', paddingRight: 10}}
                     renderLetters={this._renderLetters}
                     />
             </View>
