@@ -11,7 +11,7 @@ import {
     Text,
     View
 } from 'react-native';
-import AtoZList from './AtoZList.js';
+import AtoZList from 'react-native-atoz-list';
 import randomcolor from 'randomcolor';
 import _ from 'lodash';
 let names = require('./names');
@@ -59,7 +59,7 @@ export default class App extends Component {
         return (
             <View style={{flex: 1, backgroundColor: '#ccc'}}>
                 <View style={{height: 50, backgroundColor: '#fedd00',justifyContent: 'center', alignItems:'center'}}>
-                    <Text>全部好友</Text>
+                    <Text>Friends</Text>
                 </View>
                 <AtoZList
                     sectionHeaderHeight={35}

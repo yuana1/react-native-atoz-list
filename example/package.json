@@ -7,11 +7,11 @@
     "test": "jest"
   },
   "dependencies": {
-    "lodash": "^4.16.4",
+    "lodash": "^4.17.4",
     "randomcolor": "^0.4.4",
-    "react": "15.3.2",
-    "react-native": "^0.35.0",
-    "react-native-atoz-list": "github:zhang740/react-native-router-flux"
+    "react": "15.4.2",
+    "react-native": "^0.38.0",
+    "react-native-atoz-list": "git@github.com:buptyyf/react-native-atoz-list.git"
   },
   "jest": {
     "preset": "jest-react-native"
