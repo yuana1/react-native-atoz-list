@@ -8,7 +8,7 @@ The scroll performance is great for large lists which is why I switched to using
 
 ##Install
 ```js
-npm i -S react-native-atoz-list
+npm i -S https://github.com/buptyyf/react-native-atoz-list.git
 ```
 
 ##Usage
