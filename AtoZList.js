@@ -96,7 +96,7 @@ export default class AtoZList extends Component {
             initialNumToRender={initialNumToRender ? initialNumToRender : 20}
             pageSize={Platform.OS === 'ios' ? 15 : 8}
             maxNumToRender={100}
-            numToRenderAhead={40}
+            numToRenderAhead={80}
             numToRenderBehind={20}
             onEndReached={onEndReached}
           />
