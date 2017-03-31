@@ -29,12 +29,12 @@ export default class AlphabetPicker extends Component {
             onPanResponderGrant: (e, gestureState) => {
                 this.props.onTouchStart && this.props.onTouchStart();
 
-                this.tapTimeout = setTimeout(() => {
+                //this.tapTimeout = setTimeout(() => {
                     this._onTouchLetter(this._findTouchedLetter(gestureState.y0));
-                }, 100);
+                //}, 100);
             },
             onPanResponderMove: (evt, gestureState) => {
-                clearTimeout(this.tapTimeout);
+                //clearTimeout(this.tapTimeout);
                 this._onTouchLetter(this._findTouchedLetter(gestureState.moveY));
             },
             onPanResponderTerminate: this._onPanResponderEnd.bind(this),
@@ -62,10 +62,13 @@ export default class AlphabetPicker extends Component {
     }
 
     _onLayout(event) {
-        this.refs.alphabetContainer.measure((x1, y1, width, height, px, py) => {
-            this.absContainerTop = py;
-            this.containerHeight = height;
-        });
+        setTimeout(()=>{
+            this.refs.alphabetContainer.measure((x1, y1, width, height, px, py) => {
+                this.absContainerTop = py;
+                this.containerHeight = height;
+            });
+        }, 10);
+        
     }
 
     render() {
