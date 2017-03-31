@@ -3,15 +3,24 @@ This package is just a fork of the work of brentvatne: https://github.com/brentv
 I fixed some issues with the scrolling not working correctly and exposed the main listview component as AtoZList.
 The scroll performance is great for large lists which is why I switched to using brentvatne's implementation.
 
+## IMPORTANT
+sometimes setTimeout function won't work well(delay more than we set).You can use [react-native-background-timer](https://www.npmjs.com/package/react-native-background-timer) instead of built-in setTimeout.
+```js
+import BackgroundTimer from 'react-native-background-timer';
+global.setTimeout = BackgroundTimer.setTimeout;
+global.clearTimeout = BackgroundTimer.clearTimeout;
+global.setInterval = BackgroundTimer.setInterval;
+global.clearInterval = BackgroundTimer.clearInterval;
+```
 
 ![Alt text](http://i.imgur.com/8JPUnt5.gif "Example")
 
-##Install
+## Install
 ```js
-npm i -S https://github.com/buptyyf/react-native-atoz-list.git
+yarn add https://github.com/yuana1/react-native-atoz-list.git
 ```
 
-##Usage
+## Usage
 
 ```js
 import AtoZList from 'react-native-atoz-list';
@@ -41,7 +50,7 @@ render(
 
 ```
 
-##Props
+## Props
 Note: You need to set the section height and cellHeight.sectionHeaderHeight and cellHeight must equal to the height value of renderSection and renderCell
 
 
