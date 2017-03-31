@@ -182,10 +182,10 @@ export default class FixedHeightWindowedListView extends Component {
       });
 
       // Scroll to the buffer area as soon as setState is complete
-      this.scrollRef.scrollWithoutAnimationTo(startY);
+      //this.scrollRef.scrollWithoutAnimationTo(startY);
 
       /* there are some bugs when use scrollTo */
-      //  this.scrollRef.scrollTo({x: 0, y: startY, animation: true});
+      this.scrollRef.scrollTo({x: 0, y: startY, animation: true});
     } else {
       this.nextSectionToScrollTo = sectionId; // Only keep the most recent value
     }
