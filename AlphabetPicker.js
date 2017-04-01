@@ -68,7 +68,7 @@ export default class AlphabetPicker extends Component {
                 this.containerHeight = height;
             });
         }
-        typeof setTimeoutBuiltIn == 'undefined' ? setTimeout(_measure, 10) : setTimeoutBuiltIn(_measuer, 10) ;
+        typeof setTimeoutBuiltIn == 'undefined' ? setTimeout(_measure, 10) : setTimeoutBuiltIn(_measure, 10) ;
         
     }
 
