@@ -62,12 +62,13 @@ export default class AlphabetPicker extends Component {
     }
 
     _onLayout(event) {
-        setTimeout(()=>{
+        let _measure = ()=>{
             this.refs.alphabetContainer.measure((x1, y1, width, height, px, py) => {
                 this.absContainerTop = py;
                 this.containerHeight = height;
             });
-        }, 10);
+        }
+        typeof setTimeoutBuiltIn == 'undefined' ? setTimeout(_measure, 10) : setTimeoutBuiltIn(_measuer, 10) ;
         
     }
 
